@@ -1,0 +1,221 @@
+body {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    background-color: rgba(214, 160, 221, 0.52);
+}
+
+header {
+    margin-bottom: 32px;
+}
+
+header a {
+    font-size: 24px;
+    color: #272343;
+    text-decoration: none;
+}
+
+header a:focus {
+    font-size: 24px; 
+    font-weight: bold; 
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+#root {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main a {
+    color: #FFFFFE;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.songs--container, .lyrics--container, .span-container {
+    background-color: #272343;
+}
+
+.lyrics--container {
+    font-size: 16px;
+    color: #FFFFFE;
+    padding: 70px;
+}
+
+.style--container {
+    display: flex;
+    gap: 32px;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.songs-desc {
+    font-size: 24px;
+    color: #000000;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.style-desc div {
+    padding: 56px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+}
+
+.heartIcon {
+    max-width: 26px;
+    margin-top: 16px;
+}
+
+.upvotes-container, .downvotes-container {
+    margin-top: 7px;
+}
+
+img.arrow-up {
+    margin-bottom: -4px;
+}
+
+img.arrow-down {
+    margin-bottom: -5px;
+}
+
+.add-cart {
+    margin-top: 11px;
+}
+
+.add-cart img {
+    max-width: 26px;
+}
+
+.songs--container {
+    display: grid;
+    grid-template-columns: 10% 30% 15% 15% 15% 15%;
+    margin-bottom: 32px;
+    padding: 16px;
+    border-radius: 5px;
+    color: #FFFFFE;
+}
+
+
+.songs--container div:not(:first-of-type) {
+    margin-left: 32px;
+}
+
+.cart-items--container { 
+    grid-template-columns: 15% 50% 30%;
+}
+
+
+    
+.cart-items--container img{
+    max-width: 25px;
+    margin-top: 17px;
+}
+
+span {
+    margin-right: 6px;
+}
+
+.style-desc span {
+    font-size: 36px;
+    line-height: 44px;
+    display: block;
+    color: #FFFFFE;
+}
+
+.style-desc .artist-title {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.style--container {
+    margin-bottom: 16px;
+}
+
+.style--container img {
+    height: 78px;
+}
+
+.style--container p {
+    font-size: 64px;
+    line-height: 78px;
+}
+
+p {
+    font-size: 24px;
+    margin: 0;
+}
+
+a .style--container {
+    margin: 0;
+}
+
+a .style--container p {
+    color: #333333;
+}
+
+.add-song-form {
+    display: flex;
+    gap: 32px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+}
+
+input, select, textarea {
+    background: #BAE8E8;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 12px;
+}
+
+select {
+    padding: 8px;
+    padding-left: 16;
+}
+
+input, select, textarea:focus {
+    border: rgba(175, 238, 238, 0.507) solid .8px;
+}
+
+input {
+    padding: 8px;
+    padding-left: 16px;
+}
+
+.order-song {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-price {
+    margin-top: 100px;
+}
+
+.submit-btn, .order-btn {
+    font-size: 64px;
+    line-height: 78px;
+    background: #FFD803;
+    margin-top: 48px;
+    padding: 20px;
+    border: none;
+}
