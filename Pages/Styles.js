@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'; 
-import { Context } from '../context';
+import React from 'react';  
 import StylesComponent from "../Components/StylesComponent"
+import { connect } from 'react-redux';
 
-export default function Styles() {
-    const { allSongs } = useContext(Context);
-    
-      const stylesArr = allSongs.map(song => song.style);
+function Styles({allSongs}) {
+ 
+      const stylesArr = allSongs && allSongs.map(song => song.style);
       const removeDuplicatedStyles = stylesArr.filter((data,index)=>{
         return stylesArr.indexOf(data) === index;
       })
@@ -18,3 +17,9 @@ export default function Styles() {
         </div>
     )
 }
+
+export default connect((globalState) => {
+  return {
+    allSongs: globalState.songs
+  }
+})(Styles);

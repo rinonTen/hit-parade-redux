@@ -1,14 +1,13 @@
-import React, {useContext} from 'react';
-import { Context} from '../context';
+import React from 'react'; 
 import { useParams } from 'react-router-dom';
+import { connect } from 'react-redux';
 import LyricsComponent from '../Components/LyricsComponent';
 
-export default function Lyrics() {
-    const {songId} = useParams();
-    const {allSongs} = useContext(Context)
+
+function Lyrics({allSongs}) {
+    const {songId} = useParams(); 
   
-    const songLyrics = allSongs.find(song => song.id == songId);
-     
+    const songLyrics = allSongs.find(song => song.id == songId); 
     return (
         <div>
             {
@@ -17,3 +16,9 @@ export default function Lyrics() {
         </div>
     )
 }
+
+export default connect((globalState) => {
+    return {
+        allSongs: globalState.songs
+    }
+})(Lyrics);

@@ -1,11 +1,11 @@
 import React from 'react';
-import FormComponent from '../Components/FormComponent';
+import FormComponent from '../containers/addSong';
 
 export default function AddSong() {
-    
+  
     return (
         <div>
-            <FormComponent />
+            <FormComponent/>
         </div>
     )
 }

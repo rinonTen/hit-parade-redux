@@ -1,9 +1,8 @@
-import React, {useState, useContext } from 'react'
-import { Context } from '../context';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import CartItems from '../Components/CartItems';
 
-export default function Cart() {
-  const { cartItems, setCartItems, removeSong } = useContext(Context);
+function Cart({ cartItems, setCartItems, removeSong }) {
   // Handle the buy button
   const [buyBtnText, setBuyBtnText] = useState("Buy");
 
@@ -15,22 +14,22 @@ export default function Cart() {
     }, 3000);
     // Empty the cart
     setTimeout(() => {
-     setCartItems([]);
+      setCartItems([]);
     }, 5000);
   }
 
-  const cartItemsElement = cartItems.map(item => {
+  const cartItemsElement = cartItems && cartItems.map(item => {
     return <CartItems key={item.id} removeSong={() => removeSong(item.id)} song={item} />
   })
 
   // Total price
   let totalPrice = 0;
-  let pricesArr = cartItems.map(item => item.price);
+  let pricesArr = cartItems && cartItems.map(item => item.price);
   if (pricesArr.length > 0) {
     totalPrice = pricesArr.reduce((total, price) => total + price);
   }
 
-  const buttonAndTotalEl = pricesArr.length > 0 ?
+  const buttonAndTotalEl = pricesArr && pricesArr.length > 0 ?
     <div className="order-song">
       <button className="order-btn" onClick={buyPlace}>{buyBtnText} </button>
       <p className="total-price">Total: Ar {totalPrice}</p>
@@ -43,3 +42,9 @@ export default function Cart() {
     </div>
   )
 }
+
+export default connect((globalState) => {
+  return {
+    cartItems: globalState.cartItems
+  }
+})(Cart)

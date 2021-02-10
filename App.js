@@ -3,10 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Songs from './containers/songs';
 import Cart from './Pages/Cart';
-import Lyrics from './Pages/Lyrics'
+import Lyrics from './containers/Lyrics'
 import AddSong from './Pages/AddSong';
-import Styles from './Pages/Styles'
-import StylesDetail from './Pages/StylesDetail';
+import Styles from './containers/Styles'
+import StylesDetail from './containers/StylesDetail';
 
 export default function App() {
 	return (

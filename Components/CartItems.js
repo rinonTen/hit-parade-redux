@@ -2,7 +2,6 @@ import React from 'react';
 import trashIcon from '../images/trash_icon.svg';
 
 export default function CartItems({song, removeSong}) {
-
     return (
         <article className="songs--container cart-items--container">
             <img onClick={removeSong} src={trashIcon} alt="trash-icon"/>

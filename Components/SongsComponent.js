@@ -8,8 +8,8 @@ import arrowDownward from '../images/arrow_downward.svg';
 import cart from '../images/cart.svg';
 import cartFilled from '../images/cart_filled.svg';
 
-export default function SongsComponent({ song }) {
-    const { toggleFavorite, toggleCart, incrementUpVotes, incrementDownVotes, addToCart } = useContext(Context);
+export default function SongsComponent({ song, addToCart }) {
+    const { toggleFavorite, toggleCart, incrementUpVotes, incrementDownVotes} = useContext(Context);
 
     const handleCart = (obj, id) => {
         toggleCart(id)
