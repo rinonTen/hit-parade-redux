@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import { Context } from '../context';
+import React from 'react';
+import { Link } from 'react-router-dom'; 
 import favoriteIconBorder from '../images/favorite_border.svg';
 import favoriteIconFill from '../images/favorite_fill.svg';
 import arrowUpward from '../images/arrow_upward.svg';
@@ -8,15 +7,14 @@ import arrowDownward from '../images/arrow_downward.svg';
 import cart from '../images/cart.svg';
 import cartFilled from '../images/cart_filled.svg';
 
-export default function SongsComponent({ song, addToCart }) {
-    const { toggleFavorite, toggleCart, incrementUpVotes, incrementDownVotes} = useContext(Context);
-
+export default function SongsComponent({ song, toggleFavorite, toggleCart, incrementUpVotes, incrementDownVotes, addToCart}) {
+ 
     const handleCart = (obj, id) => {
         toggleCart(id)
         if (!song.alreadyBought) {
             addToCart(obj);
         }
-    }
+    } 
 
     const favoritedIcon = song.isFavorited ? favoriteIconFill : favoriteIconBorder;
     const cartIconSource = song.alreadyBought ? cartFilled : cart;

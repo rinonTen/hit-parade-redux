@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './Components/Header';
 import Songs from './containers/songs';
-import Cart from './Pages/Cart';
+import Cart from './containers/cart';
 import Lyrics from './containers/Lyrics'
 import AddSong from './Pages/AddSong';
 import Styles from './containers/Styles'

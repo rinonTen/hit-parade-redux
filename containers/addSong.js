@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
-import { addSong } from '../actions';
+import { addSong, setTitle, setArtist, setPrice, setStyle, setLyrics, } from '../actions';
 import FormComponent from '../Components/FormComponent';
 
-const mapDispatchToState  = {
-    handleForm: addSong
+const mapDispatchToState = {
+    addSong,
+    setTitle,
+    setArtist,
+    setPrice,
+    setStyle,
+    setLyrics,
 }
-  
-export default connect(null, mapDispatchToState) (FormComponent);
+
+export default connect(null, mapDispatchToState)(FormComponent);

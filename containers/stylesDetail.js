@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { setSongs } from '../actions';
-import StylesDetail from '../Pages/Songs';
+import { getSongs } from '../actions';
+import StylesDetail from '../Pages/StylesDetail';
 
 const mapDispatchToState  = {
-    allSongs: setSongs
+   allSongs: getSongs,
 }
   
 export default connect(null, mapDispatchToState) (StylesDetail);

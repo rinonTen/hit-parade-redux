@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 export default function stylesDetailComponent({ song }) {
- 
     return (
         <article className="style-desc">
             <Link to={`/song/${song.id}`}>

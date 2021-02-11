@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import CartItems from '../Components/CartItems';
 
-function Cart({ cartItems, setCartItems, removeSong }) {
+function Cart({ cartItems, addToCart, removeSong, emptyCart }) {
   // Handle the buy button
   const [buyBtnText, setBuyBtnText] = useState("Buy");
 
@@ -14,13 +14,25 @@ function Cart({ cartItems, setCartItems, removeSong }) {
     }, 3000);
     // Empty the cart
     setTimeout(() => {
-      setCartItems([]);
+      emptyCart()
     }, 5000);
   }
+
+  // useEffect(() => {
+  //   if (cartItems.length > 0) {
+  //     localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  //   }
+  // }, [cartItems])
+
+console.log(cartItems)
+  // useEffect(() => {
+  //   addToCart()
+  // }, [])
 
   const cartItemsElement = cartItems && cartItems.map(item => {
     return <CartItems key={item.id} removeSong={() => removeSong(item.id)} song={item} />
   })
+
 
   // Total price
   let totalPrice = 0;

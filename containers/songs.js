@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
-import { setSongs } from '../actions';
+import { getSongs, storeSongs, toggleFavorite } from '../actions';
 import Songs from '../Pages/Songs';
 
-const mapDispatchToState  = {
-    allSongs: setSongs
+const mapDispatchToState  = { 
+    getSongs, 
+    toggleFavorite,
 }
   
 export default connect(null, mapDispatchToState) (Songs);

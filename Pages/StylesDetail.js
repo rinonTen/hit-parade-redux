@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 function StylesDetail({ allSongs }) {
     const { styleName } = useParams();
     const styles = allSongs.filter(song => song.style == styleName);
-
     const styleDetailEl = styles.map(song => {
         return <StyleDetailComponent key={song.id} song={song} />
     })

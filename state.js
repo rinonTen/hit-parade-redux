@@ -1,7 +1,14 @@
 import songsData from './HitParadeData';
  
 export default {
-    songs: songsData,
+    songs: [],
     cartItems: [],
-    styles: []
+    styles: [],
+    newSong: {
+        title: "",
+        artist: "",
+        price: "0",
+        style: "",
+        lyrics: "",
+    },
 }
