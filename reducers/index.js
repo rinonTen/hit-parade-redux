@@ -4,8 +4,6 @@ export function songs(songs = [], action) {
     switch (action.type) {
         case "GET_SONGS":
             return action.payload
-        case "STORE_SONGS":
-            return songs
         case "ADD_SONG":
             return [...songs, action.payload]
         case "TOGGLE_FAVORITE":
@@ -57,6 +55,8 @@ export function cartItems(cartItems = [], action) {
     switch (action.type) {
         case "ADD_TO_CART":
             return [...cartItems, action.payload]
+        case "STORE_CART_TO_LOCAL_STORAGE": 
+            return action.payload
         case "REMOVE_FROM_CART":
             return cartItems.filter(item => item.id !== action.payload)
         case "EMPTY_CART":

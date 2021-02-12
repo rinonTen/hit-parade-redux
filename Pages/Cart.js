@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import CartItems from '../Components/CartItems';
 
-function Cart({ cartItems, addToCart, removeSong, emptyCart }) {
+function Cart({ cartItems, removeSong, emptyCart, storeCartToLocalStorage }) {
   // Handle the buy button
   const [buyBtnText, setBuyBtnText] = useState("Buy");
 
@@ -16,18 +16,17 @@ function Cart({ cartItems, addToCart, removeSong, emptyCart }) {
     setTimeout(() => {
       emptyCart()
     }, 5000);
-  }
+  } 
 
-  // useEffect(() => {
-  //   if (cartItems.length > 0) {
-  //     localStorage.setItem("cartItems", JSON.stringify(cartItems))
-  //   }
-  // }, [cartItems])
-
-console.log(cartItems)
-  // useEffect(() => {
-  //   addToCart()
-  // }, [])
+  useEffect(() => {
+    if (cartItems.length > 0) {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    }
+  }, [cartItems])
+  
+useEffect(() => {
+  storeCartToLocalStorage(cartItems)
+}, []);
 
   const cartItemsElement = cartItems && cartItems.map(item => {
     return <CartItems key={item.id} removeSong={() => removeSong(item.id)} song={item} />
@@ -36,7 +35,7 @@ console.log(cartItems)
 
   // Total price
   let totalPrice = 0;
-  let pricesArr = cartItems && cartItems.map(item => item.price);
+  let pricesArr = cartItems.map(item => item.price);
   if (pricesArr.length > 0) {
     totalPrice = pricesArr.reduce((total, price) => total + price);
   }

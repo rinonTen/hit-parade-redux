@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import favoriteIconBorder from '../images/favorite_border.svg';
 import favoriteIconFill from '../images/favorite_fill.svg';
 import arrowUpward from '../images/arrow_upward.svg';
@@ -7,14 +7,15 @@ import arrowDownward from '../images/arrow_downward.svg';
 import cart from '../images/cart.svg';
 import cartFilled from '../images/cart_filled.svg';
 
-export default function SongsComponent({ song, toggleFavorite, toggleCart, incrementUpVotes, incrementDownVotes, addToCart}) {
- 
+export default function SongsComponent({ song, toggleFavorite, toggleCart, incrementUpVotes, incrementDownVotes, addToCart }) {
+
     const handleCart = (obj, id) => {
         toggleCart(id)
         if (!song.alreadyBought) {
             addToCart(obj);
         }
-    } 
+    }
+   
 
     const favoritedIcon = song.isFavorited ? favoriteIconFill : favoriteIconBorder;
     const cartIconSource = song.alreadyBought ? cartFilled : cart;
@@ -31,7 +32,7 @@ export default function SongsComponent({ song, toggleFavorite, toggleCart, incre
                 <span>{song.upvotes}</span>
             </div>
             <div className="downvotes-container">
-                <img className="arrow-down"  onClick={() => incrementDownVotes(song.id)} src={arrowDownward} alt="image of down arrow" />
+                <img className="arrow-down" onClick={() => incrementDownVotes(song.id)} src={arrowDownward} alt="image of down arrow" />
                 <span>{song.downvotes}</span>
             </div>
             <div className="add-cart">
@@ -39,7 +40,7 @@ export default function SongsComponent({ song, toggleFavorite, toggleCart, incre
             </div>
             <div className="song-lyrics">
                 <Link to={`/song/${song.id}`}>
-                   {`. . .`}
+                    {`. . .`}
                 </Link>
             </div>
         </article>

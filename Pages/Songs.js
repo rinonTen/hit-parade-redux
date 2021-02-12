@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import SongsComponent from '../containers/songsComponents';
 
-function Songs({ allSongs, getSongs, storeSongs}) { 
+function Songs({ allSongs, getSongs}) { 
 
     useEffect(() => {
         if (allSongs.length > 0) {
@@ -14,8 +14,7 @@ function Songs({ allSongs, getSongs, storeSongs}) {
     useEffect(() => {
         getSongs()
     }, [])
-    
-console.log(allSongs)
+     
     const songsElement = allSongs && allSongs.sort((songA, songB) => {
         const song1 = songA.upvotes - songB.upvotes;
         const song2 = songA.downvotes - songB.downvotes;

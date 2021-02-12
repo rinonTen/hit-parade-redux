@@ -52,11 +52,18 @@ export function toggleCart(idToToggle) {
     }
 }
 
-export function addToCart(cartItems) {
+export function addToCart(song) {
+    return { 
+            type: 'ADD_TO_CART',
+            payload: song
+        } 
+}
+
+export function storeCartToLocalStorage(cartItems) {
     return async (dispatch) => {
         const lsCartItems = JSON.parse(localStorage.getItem("cartItems"));
         dispatch({
-            type: 'ADD_TO_CART',
+            type: 'STORE_CART_TO_LOCAL_STORAGE',
             payload: lsCartItems ? lsCartItems : cartItems
         })
     }
