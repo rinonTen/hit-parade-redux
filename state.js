@@ -2,8 +2,7 @@ import songsData from './HitParadeData';
  
 export default {
     songs: [],
-    cartItems: [],
-    styles: [],
+    cartItems: [], 
     newSong: {
         title: "",
         artist: "",

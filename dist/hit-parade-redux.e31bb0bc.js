@@ -36462,7 +36462,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var _default = {
   songs: [],
   cartItems: [],
-  styles: [],
   newSong: {
     title: "",
     artist: "",
@@ -36472,19 +36471,13 @@ var _default = {
   }
 };
 exports.default = _default;
-},{"./HitParadeData":"HitParadeData.js"}],"reducers/index.js":[function(require,module,exports) {
+},{"./HitParadeData":"HitParadeData.js"}],"reducers/songsReducers.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.songs = songs;
-exports.cartItems = cartItems;
-exports.styles = styles;
-exports.newSong = newSong;
-exports.default = void 0;
-
-var _redux = require("redux");
 
 function songs(songs = [], action) {
   switch (action.type) {
@@ -36546,6 +36539,13 @@ function songs(songs = [], action) {
       return songs;
   }
 }
+},{}],"reducers/cartItemsReducers.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cartItems = cartItems;
 
 function cartItems(cartItems = [], action) {
   switch (action.type) {
@@ -36565,14 +36565,13 @@ function cartItems(cartItems = [], action) {
       return cartItems;
   }
 }
+},{}],"reducers/newSongReducers.js":[function(require,module,exports) {
+"use strict";
 
-function styles(styles = [], action) {
-  switch (action.type) {
-    case "value":
-    default:
-      return styles;
-  }
-}
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.newSong = newSong;
 
 function newSong(newSong = {}, action) {
   switch (action.type) {
@@ -36605,16 +36604,30 @@ function newSong(newSong = {}, action) {
       return newSong;
   }
 }
+},{}],"reducers/index.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _redux = require("redux");
+
+var _songsReducers = require("./songsReducers");
+
+var _cartItemsReducers = require("./cartItemsReducers");
+
+var _newSongReducers = require("./newSongReducers");
 
 var _default = (0, _redux.combineReducers)({
-  songs,
-  cartItems,
-  styles,
-  newSong
+  songs: _songsReducers.songs,
+  cartItems: _cartItemsReducers.cartItems,
+  newSong: _newSongReducers.newSong
 });
 
 exports.default = _default;
-},{"redux":"node_modules/redux/es/redux.js"}],"store.js":[function(require,module,exports) {
+},{"redux":"node_modules/redux/es/redux.js","./songsReducers":"reducers/songsReducers.js","./cartItemsReducers":"reducers/cartItemsReducers.js","./newSongReducers":"reducers/newSongReducers.js"}],"store.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
